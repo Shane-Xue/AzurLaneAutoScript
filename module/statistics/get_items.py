@@ -92,4 +92,5 @@ class GetItemsStatistics:
         if ITEM_GROUP.grids is not None:
             new = ITEM_GROUP.extract_template(image)
             for name, im in new.items():
-                cv2.imwrite(os.path.join(folder, f'{name}.png'), im)
+                im_bgr = cv2.cvtColor(im, cv2.COLOR_RGB2BGR)
+                cv2.imwrite(os.path.join(folder, f'{name}.png'), im_bgr)
